@@ -1,6 +1,10 @@
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
+#include <sstream>
+#include <cstdlib>
+
+
 template<typename T>
 class Array
 {
@@ -27,7 +31,9 @@ class Array
 		{
 			if(i >= _size || i < 0)
 			{
-				std::string str = "Index " + std::to_string(i) + " out of range";
+				std::ostringstream oss;
+				oss << i;
+				std::string str = "Index " + oss.str() + " out of range";
 				throw std::out_of_range(str);
 			}
 			return (_array[i]);
